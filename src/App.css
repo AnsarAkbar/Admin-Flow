@@ -1,0 +1,107 @@
+body{
+  font-family: 'Poppins',sans-serif;
+}
+form *{
+  font-family: 'Poppins',sans-serif;
+  letter-spacing: 0.5px;
+  outline: none;
+  color: #000000cc;
+}
+form {
+  max-width: 350px;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 30px;
+  margin: 0 auto;
+}
+label{
+  display: block;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  /* color: #000000cc; */
+}
+.page-heading{
+  text-align: center;
+  font-size: x-large;
+  font-weight: 600;
+  margin-top: 0px;
+}
+input {
+  height: 31px;
+  width: -webkit-fill-available;
+  border-radius: 3px;
+  color: black;
+  border: 2px solid #000000cc;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  padding-left: 5px;
+}
+input[type="file"] {
+  border: none;
+  font-size: medium;
+}
+.form-btn {
+  text-align: center;
+}
+button{
+  margin-top: 20px;
+  width: 50%;
+  border: 2px solid rgb(27, 167, 27);
+  color: rgb(27, 167, 27);
+  padding: 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  border: 2px solid rgb(2, 138, 2);
+  color: rgb(2, 138, 2);
+}
+.form-description {
+  max-width: 350px;
+  margin: 0 auto;
+  text-align: center;
+}
+.form-description > p {
+  margin: 0px 0px 10px 0px;
+  font-size: smaller;
+}
+.congrats-msg{
+  text-align: center;
+}
+h4.gender {
+  margin: 20px 0px 8px 0px;
+}
+.radio-fields{
+  display: flex;
+  gap: 5px;
+  margin: 5px 0px;
+}
+.radio-fields>label{
+  margin: 0px;
+  font-size: 14px;
+}
+.radio-fields> input{
+  width: fit-content;
+  margin: 0px;
+  height: initial;
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.checkbox > input{
+  width: max-content;
+  order: 1;
+  margin: 0px;
+}
+.checkbox >label{
+  margin: 0px;
+  order: 2;
+  font-size: small;
+  font-weight: 500;
+}
