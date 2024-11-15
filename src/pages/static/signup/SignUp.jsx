@@ -3,14 +3,16 @@ import { NavLink } from "react-router-dom";
 import { SingnUpDetail } from "../../../Utils/FieldsData/fields";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
-import { handleChange } from "../../../Utils/Functions/HandleData";
+import { handleChange, handlesubmite } from "../../../Utils/Functions/HandleData";
+import { useDispatch } from "react-redux";
 
-const SignUp = ({ }) => {
+const SignUp = () => {
+  const dispatch=useDispatch()
   // const formfields=[]
   // console.log('formfields',formfields)
   return (
     <>
-      <form className="signup-form">
+      <form className="signup-form" onSubmit={e=>e.preventDefault}>
         <h3 className="page-heading">SignUp</h3>
         {SingnUpDetail.map((value, index) => {
           // formfields.push({[value.inputFor]:""})
@@ -22,6 +24,7 @@ const SignUp = ({ }) => {
                 type={value.type}
                 placeholder={value.placeholder}
                 handleChange={handleChange}
+                dispatch={dispatch}
               />
             </div>
           );

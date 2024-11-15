@@ -10,13 +10,11 @@ const slice = createSlice({
   },
   reducers: {
     handleUserData: (state, action) => {
-    //   console.log(action.payload);
-      state.collectInfo = action.payload;
+      const userData = { ...action.payload };
+      state.collectUserInfo.collect.push(userData);
     },
   },
 });
 
 export const { handleUserData } = slice.actions;
-
-// Export the reducer to be used in the store
 export default slice.reducer;
