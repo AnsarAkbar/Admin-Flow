@@ -4,9 +4,11 @@ import Input from "../../../components/Input";
 import Button from "../../../components/Button";
 import { newPass } from "../../../Utils/FieldsData/fields";
 import { IoCaretBackCircleSharp } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { handlesubmite } from "../../../Utils/Functions/HandleData";
 
 const NewPass = () => {
+  const navigate = useNavigate(); 
   return (
     <div className=".page">
       <div>
@@ -14,7 +16,8 @@ const NewPass = () => {
           <IoCaretBackCircleSharp className="back" />
         </NavLink>
       </div>
-      <form className="newPass-form">
+
+      <form className="newPass-form" onSubmit={e=>handlesubmite({ e, path: '/frogot-password/updated', navigate})}>
         <div>
           <h3 className="page-heading">Set a new password</h3>
           <p className="page-description">

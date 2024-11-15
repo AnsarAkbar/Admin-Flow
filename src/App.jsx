@@ -5,9 +5,9 @@ import SpinerLoader from "./pages/error/loader/SpinerLoader";
 import { appRoutes, routesWithoutLayout } from "./routes/routes";
 import Layout from "./components/Layout/Layout";
 import "./App.css";
+import NotFound from "./pages/error/notFound/NotFound";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -15,11 +15,9 @@ function App() {
         <Routes>
           {/* Route without layout */}
           <Route path="/" element={<Login />} />
-
           {routesWithoutLayout.map((route) => (
-          
             <Route
-              key={route?.id} // Use `key` to ensure each route is unique
+              key={route?.id}
               path={route?.path}
               element={
                 <Suspense fallback={<SpinerLoader />}>
@@ -30,15 +28,20 @@ function App() {
           ))}
 
           {/* Routes within layout */}
-          {/* <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Layout />}>
             {appRoutes.map((route) => (
               <Route
-                key={route?.id} // Use `key` to ensure each route is unique
+                key={route?.id}
                 path={route?.path}
-                element={route?.element}
+                element={
+                  <Suspense fallback={<SpinerLoader />}>
+                    {route?.element}
+                  </Suspense>
+                }
               />
-            ))} 
-          </Route>*/}
+            ))}
+          </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -3,13 +3,17 @@ import { NavLink } from "react-router-dom";
 import { SingnUpDetail } from "../../../Utils/FieldsData/fields";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
+import { handleChange } from "../../../Utils/Functions/HandleData";
 
 const SignUp = ({ }) => {
+  // const formfields=[]
+  // console.log('formfields',formfields)
   return (
     <>
       <form className="signup-form">
-        <h3 className="page-heading">Login</h3>
+        <h3 className="page-heading">SignUp</h3>
         {SingnUpDetail.map((value, index) => {
+          // formfields.push({[value.inputFor]:""})
           return (
             <div className={value.inputFor} key={index}>
               <label htmlFor={value.inputFor}>{value.inputFor}</label>
@@ -17,6 +21,7 @@ const SignUp = ({ }) => {
                 inputFor={value.inputFor}
                 type={value.type}
                 placeholder={value.placeholder}
+                handleChange={handleChange}
               />
             </div>
           );
