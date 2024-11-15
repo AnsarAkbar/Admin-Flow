@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Button = ({value,calssName}) => {
+const Button = ({value,alignment}) => {
   return (
-    <div  className={calssName}>
+    <div  className={alignment}>
       <button type='submit'>{value}</button>
     </div>
   )

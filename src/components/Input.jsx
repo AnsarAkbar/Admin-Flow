@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Input = ({type,placeholder,maxlength}) => {
+const Input = ({type,placeholder,length}) => {
   return (
     <div>
-      <input type={type}  placeholder={placeholder} maxlength={maxlength} />
+      <input type={type}  placeholder={placeholder} maxLength={length} />
     </div>
   )
 }

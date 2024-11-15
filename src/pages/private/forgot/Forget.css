@@ -1,0 +1,53 @@
+form.otp-form {
+    /* max-width: max-content; */
+}
+.\.page {
+    max-width: 450px;
+    margin: 0 auto;
+}
+.otp {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.otp input {
+    width: 30px;
+    font-size: larger;
+    text-align: center;
+}
+.signup-form  button{
+    width: 100%;
+}
+
+.page-description{
+    font-size: small;
+    text-align: center;
+}
+
+svg.back {
+    color: black;
+    font-size: xxx-large;
+}
+
+.next-page {
+    margin: 0 0 0 auto;
+    margin-top: 20px;
+    width: fit-content;
+    border: 2px solid rgb(27, 167, 27);
+    padding: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.next-page > .navlink{
+    color: rgb(27, 167, 27);
+}
+.next-page:hover {
+        border: 2px solid rgb(2, 138, 2);
+        color: rgb(2, 138, 2);
+      }
+.next-page  svg{
+    padding-left: 10px;
+    font-size: small;
+}

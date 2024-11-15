@@ -1,7 +1,7 @@
 import React from 'react'
-import { LoginDetail } from '../../Utils/FieldsData/fields';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import { LoginDetail } from '../../../Utils/FieldsData/fields';
+import Input from '../../../components/Input';
+import Button from '../../../components/Button';
 import { Link, NavLink } from 'react-router-dom';
 import './Login.css'
 
@@ -27,7 +27,7 @@ const Login = () => {
         <div className='acount-option'>
           <div >
             Wrong password
-            <NavLink className='navlink' to={'/frogotpassword'} > Frogot Password?</NavLink>
+            <NavLink className='navlink' to={'/forgot-password'} > Frogot Password?</NavLink>
           </div>
           <hr />
           <div>

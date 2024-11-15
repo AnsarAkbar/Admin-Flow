@@ -1,14 +1,16 @@
 import React from 'react'
 import './Forget.css'
 import { Link, NavLink } from 'react-router-dom';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
-import { otpFields } from '../../Utils/FieldsData/fields';
+import Input from '../../../components/Input';
+import Button from '../../../components/Button';
+import { otpFields } from '../../../Utils/FieldsData/fields';
+import { IoCaretBackCircleSharp } from "react-icons/io5";
 
 
 const OTP = () => {
   return (
-    <>
+    <div className='.page'>
+    <div><NavLink to={'/forgot-password'}><IoCaretBackCircleSharp className='back'/></NavLink></div>
     <form className="otp-form">
     <h3 className="page-heading">Check your email</h3>
     <p className="page-description">We sent a reset link to contact@dscode...com
@@ -16,11 +18,10 @@ const OTP = () => {
       {otpFields.map((value, index) => {
         return (
           <div className={value.inputFor} key={index}>
-            {/* <label htmlFor={value.inputFor}>{value.inputFor}</label> */}
             <Input
               inputFor={value.inputFor}
               type={value.type}
-              maxlength={1}
+              length={1}
             />
             <Input
               inputFor={value.inputFor}
@@ -40,10 +41,9 @@ const OTP = () => {
           </div>
         );
       })}
-      <Button value="Verify Code"/>
+      <Button value="Verify Code" alignment="center"/>
     </form>
-    <NavLink to={'/'}>Back</NavLink>
-    </>
+    </div>
   )
 }
 

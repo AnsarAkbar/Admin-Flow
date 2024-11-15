@@ -1,0 +1,75 @@
+/* <Routes>
+<Route path="/" element={<Login />} />
+<Route
+  path="/signup"
+  element={
+    <Suspense fallback={<SpinerLoader />}>
+      <SignUp />
+    </Suspense>
+  }
+/>
+<Route
+  path="/forgot-password"
+  element={
+    <Suspense fallback={<SpinerLoader />}>
+      <Email />
+    </Suspense>
+  }
+/>
+<Route
+  path="/forgot-password"
+  element={
+    <Suspense fallback={<SpinerLoader />}>
+      <Email />
+    </Suspense>
+  }
+/> 
+<Route
+  path="/frogot-password/otp"
+  element={
+    <Suspense fallback={<SpinerLoader />}>
+      <OTP />
+    </Suspense>
+  }
+/>
+<Route
+  path="/frogot-password/resetpass"
+  element={
+    <Suspense fallback={<SpinerLoader />}>
+      <PassReset />
+    </Suspense>
+  }
+/>
+<Route
+  path="/frogot-password/new"
+  element={
+    <Suspense fallback={<SpinerLoader />}>
+      <NewPass />
+    </Suspense>
+  }
+/>
+<Route
+  path="/frogot-password/updated"
+  element={
+    <Suspense fallback={<SpinerLoader />}>
+      <Congrats />
+    </Suspense>
+  }
+/>
+<Route
+  path="/admin"
+  element={
+    <Suspense fallback={<SpinerLoader />}>
+      <Admin />
+    </Suspense>
+  }
+/>
+<Route
+  path="*"
+  element={
+    <Suspense fallback={<SpinerLoader />}>
+      <NotFound />
+    </Suspense>
+  }
+/>
+</Routes> */

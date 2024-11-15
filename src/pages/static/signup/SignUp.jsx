@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { SingnUpDetail } from "../../Utils/FieldsData/fields";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
+import { SingnUpDetail } from "../../../Utils/FieldsData/fields";
+import Input from "../../../components/Input";
+import Button from "../../../components/Button";
 
 const SignUp = ({ }) => {
   return (
