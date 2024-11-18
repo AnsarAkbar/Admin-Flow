@@ -1,7 +1,7 @@
 export const SingnUpDetail = [
   {
-    label: "firstname",
-    inputFor: "firstname",
+    label: "name",
+    inputFor: "name",
     type: "text",
     placeholder: "Enter Your Full Name",
     reg: /^[ a-zA-Z ]+$/,
@@ -18,13 +18,14 @@ export const SingnUpDetail = [
     inputFor: "password",
     type: "password",
     placeholder: "At least 8 characters",
-    reg: /^[a-zA-Z0-9._%+-]+$/,
+    reg: /^[a-zA-Z0-9._%+-]+$/,///^\d{4}$/
   },
   {
     label: "I agree with terms and privacy",
     inputFor: "checkbox",
     type: "checkbox",
     placeholder: "",
+    value:false
     // reg: /^[a-zA-Z0-9._%+-]+$/,
   },
 ];

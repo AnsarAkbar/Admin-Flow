@@ -5,13 +5,13 @@ const slice = createSlice({
   initialState: {
     collectUserInfo: {
       nextPage: false,
-      collect: [],
+      // inputFields:{},
+      collect: {},
     },
   },
   reducers: {
     handleUserData: (state, action) => {
-      const userData = { ...action.payload };
-      state.collectUserInfo.collect.push(userData);
+      state.collectUserInfo.collect = { ...state.collectUserInfo?.collect, ...action.payload };
     },
   },
 });
