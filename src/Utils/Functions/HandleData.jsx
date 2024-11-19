@@ -20,7 +20,7 @@ export const handlesubmite = (e, storeData, pageInputs, path, navigate, validati
     const anyError = Object.values(collectedError).some(value => value !== "");
     if (!anyError) {
         dispatch(handleUserData(true))
-        // navigate && navigate(path && path);
+        navigate && navigate(path && path);
     }else{
         dispatch(handleUserData(false))
     }

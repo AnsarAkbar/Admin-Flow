@@ -1,8 +1,9 @@
 import React from 'react'
+import PatternBackground from './PattrenBackground'
 
 const Admin = () => {
   return (
-    <h3 className="page-heading">Admin panel</h3>
+    <PatternBackground />
   )
 }
 

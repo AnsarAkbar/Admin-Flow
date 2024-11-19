@@ -1,3 +1,7 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* <Routes>
 <Route path="/" element={<Login />} />
 <Route

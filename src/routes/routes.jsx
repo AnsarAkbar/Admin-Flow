@@ -6,6 +6,7 @@ const NewPass = React.lazy(() => import("../pages/private/forgot/NewPass"));
 const PassReset = React.lazy(() => import("../pages/private/forgot/PassReset"));
 const Congrats = React.lazy(() => import("../pages/private/forgot/Congrats"));
 const Admin = React.lazy(() => import("../pages/private/admin/admin"));
+const PattrenBackground = React.lazy(() => import("../pages/private/admin/PattrenBackground"));
 
 export const routesWithoutLayout = [
   {
@@ -53,4 +54,10 @@ export const appRoutes = [
     protected: true,
     element: <Admin />,
   },
+  {
+    id: "pattrenbackground",
+    path: "/pattrenbackground",
+    protected: true,
+    element: <PattrenBackground />,
+  }
 ];
