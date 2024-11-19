@@ -1,56 +1,48 @@
-import { handleUserData } from "../../Redux/Slices/slice";
+import { errorHandle, handleUserData } from "../../Redux/Slices/slice";
 
-export const handlesubmite = (e, storeData, pageInputs, path, navigate, setValidation,validation) => {
+export const handlesubmite = (e, storeData, pageInputs, path, navigate, validation, collectedError,dispatch) => {
     e?.preventDefault();
 
     const inputfields = Object.keys(pageInputs)
-    const storedInfo = Object.keys(storeData)
+    const storedInfo = Object.keys(storeData.collect)//get keys of stored items
+
     // check if any field is empity
     inputfields?.filter(item => {
-        if (storedInfo.includes(item) && storeData[item]) {
-            setValidation((prev) => ({
-                ...prev,
-                [item]: "",
-            }));
+        if (storedInfo.includes(item) && storeData.collect[item]) {
+            validation = { ...validation, [item]: "", }
         } else {
-            setValidation((prev) => ({
-                ...prev,
-                [item]: 'Field is required...!',
-            }));
-
+            validation = { ...validation, [item]: 'Field is required...!', }
         }
     });
-    console.log(validation)
-    console.log(Object.values(validation))
 
-    console.log(Object.values(validation).every(e => e === ""));
-
-    // console.log(Object.values(validation).some(e=>e===true))
-    if (!validation) {
-        console.log(true)
-        navigate && navigate(path && path);
+    dispatch(errorHandle(validation))
+    // check any error exist?
+    const anyError = Object.values(collectedError).some(value => value !== "");
+    if (!anyError) {
+        dispatch(handleUserData(true))
+        // navigate && navigate(path && path);
+    }else{
+        dispatch(handleUserData(false))
     }
-
 };
 
-export const handleChange = (e, inputFor, dispatch, Reg, validation, setValidation,value) => {
-    const inputValue =e.target.value;
-        dispatch(handleUserData({ [inputFor]: inputValue }))
+export const handleChange = (e, inputFor, dispatch, Reg, validation, setValidation, isChecked, setIsChecked) => {
+    // onClicked check box convert in 'true'
+    isChecked=!isChecked
+    setIsChecked(isChecked);
+    // if inputFor === checkbox 
+    const inputValue=inputFor==="checkbox"?isChecked: e.target.value;
+    // dispatchad data
+    dispatch(handleUserData({ [inputFor]: inputValue }))
+
     if (Reg?.test(inputValue) || !inputValue || ['gender', 'department', 'checkbox'].includes(inputFor)) {
-        // dispatch(handleUserData({ [inputFor]: inputValue }))
-        // Clear validation message for this field
-        setValidation((prev) => ({
-            ...prev,
-            [inputFor]: "",
-        }));
+        // if regex is true then remove the error
+        validation = { ...validation, [inputFor]: "" }
     } else {
-        // Show validation message for this field
-        setValidation((prev) => ({
-            ...validation, [inputFor]: `Please use ${Reg}`,
-        }));
+        // if regex is false then add error
+        validation = { ...validation, [inputFor]: `Please use ${Reg}` }
     }
+    // dispatch errors
+    dispatch(errorHandle(validation))
 }
-// export const checkboxHelper = checkbox => {
-// 	const output = checkbox.checked ? true : false
-// 	return({value:[output]})
-// }
+

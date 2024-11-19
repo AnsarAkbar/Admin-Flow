@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { checkboxHelper } from '../Utils/Functions/HandleData'
 
 const Input = ({
   type,
@@ -14,26 +13,21 @@ const Input = ({
   storedData,
   value,
 }) => {
-  // const [check, setCheck] = useState(value)
-  // console.log('check',check)
+  // add a value for input field
+  const [isChecked, setIsChecked] = useState(value)
   // console.log("storedData", storedData);
 
   return (
     <div>
       <input
         type={type}
-        placeholder={placeholder}
-        maxLength={length}
+        placeholder={placeholder && placeholder}
+        maxLength={length && length}
         onChange={(e) =>
-          handleChange(e, inputFor, dispatch, Reg, validation, setValidation, value)
+          handleChange(e, inputFor, dispatch, Reg, validation, setValidation, isChecked, setIsChecked)
         }
+        checked={storedData?.[inputFor]}
         value={storedData?.[inputFor]}
-        // checked={value}
-        // onClick={() => {
-        //   if (inputFor === "checkbox") {
-        //     setCheck(!check)
-        //   }
-        // }}
       />
     </div>
   );

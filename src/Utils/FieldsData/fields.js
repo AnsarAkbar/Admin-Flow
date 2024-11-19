@@ -17,16 +17,14 @@ export const SingnUpDetail = [
     label: "password",
     inputFor: "password",
     type: "password",
-    placeholder: "At least 8 characters",
-    reg: /^[a-zA-Z0-9._%+-]+$/,///^\d{4}$/
+    placeholder: "At least 6 characters",
+    reg:/^.{6,}$/
   },
   {
     label: "I agree with terms and privacy",
     inputFor: "checkbox",
     type: "checkbox",
-    placeholder: "",
     value:false
-    // reg: /^[a-zA-Z0-9._%+-]+$/,
   },
 ];
 
