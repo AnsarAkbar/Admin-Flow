@@ -1,8 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { teamMembers } from "../pages/private/Team/Team";
 
-const Sidebar = ({menuOpen}) => {
+const Sidebar = ({ menuOpen }) => {
+
+  // const sidebarEliments=[{path:"/admin/dashbord"},]
+
   return (
-    <div className={`flex ${menuOpen ? 'block' : 'hidden'}`}>
+    <div className={`flex ${menuOpen ? "block" : "hidden"}`}>
       {/* Sidebar */}
       <div className="w-64 bg-gray-800 text-white h-[fit-content] p-6">
         {/* Logo */}
@@ -20,8 +25,8 @@ const Sidebar = ({menuOpen}) => {
           <ul className="space-y-4">
             {/* Main Navigation Items */}
             <li>
-              <a
-                href="#"
+              <Link
+                to={"/admin/dashbord"}
                 className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition"
               >
                 <svg
@@ -40,11 +45,11 @@ const Sidebar = ({menuOpen}) => {
                   ></path>
                 </svg>
                 Dashboard
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to={"/team"}
                 className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition"
               >
                 <svg
@@ -63,11 +68,11 @@ const Sidebar = ({menuOpen}) => {
                   ></path>
                 </svg>
                 Team
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to={"/projects"}
                 className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition"
               >
                 <svg
@@ -86,11 +91,11 @@ const Sidebar = ({menuOpen}) => {
                   ></path>
                 </svg>
                 Projects
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to={"/meeting-schedule"}
                 className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition"
               >
                 <svg
@@ -109,11 +114,11 @@ const Sidebar = ({menuOpen}) => {
                   ></path>
                 </svg>
                 Calendar
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link 
+                to={'/documentation'}
                 className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition"
               >
                 <svg
@@ -132,11 +137,11 @@ const Sidebar = ({menuOpen}) => {
                   ></path>
                 </svg>
                 Documents
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to={'/reports'}
                 className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition"
               >
                 <svg
@@ -160,7 +165,7 @@ const Sidebar = ({menuOpen}) => {
                   ></path>
                 </svg>
                 Reports
-              </a>
+              </Link>
             </li>
           </ul>
 
@@ -168,39 +173,18 @@ const Sidebar = ({menuOpen}) => {
           <div className="mt-8">
             <h3 className="text-lg font-semibold">Your teams</h3>
             <ul className="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition"
-                >
-                  <span className="w-8 h-8 rounded-full bg-gray-500 mr-3 flex items-center justify-center">
-                    H
-                  </span>
-                  Heroicons
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition"
-                >
-                  <span className="w-8 h-8 rounded-full bg-gray-500 mr-3 flex items-center justify-center">
-                    T
-                  </span>
-                  Tailwind Labs
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition"
-                >
-                  <span className="w-8 h-8 rounded-full bg-gray-500 mr-3 flex items-center justify-center">
-                    W
-                  </span>
-                  Workcation
-                </a>
-              </li>
+              {teamMembers.map((teamMember, index) => {
+                return (
+                  <li key={index}>
+                    <Link className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition">
+                      <span className="w-8 h-8 rounded-full bg-gray-500 mr-3 flex items-center justify-center">
+                        {teamMember.name[0]}
+                      </span>
+                      {teamMember.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </nav>

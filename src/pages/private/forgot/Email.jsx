@@ -17,7 +17,7 @@ const Email = () => {
           <IoCaretBackCircleSharp className="back" />
         </NavLink>
       </div>
-      <form className="forget-email-form"  onSubmit={e=>handlesubmite({ e, path: '/forgot-password/otp', navigate})}>
+      <form className="forget-email-form form"  onSubmit={e=>handlesubmite({ e, path: '/forgot-password/otp', navigate})}>
         <h3 className="page-heading">Forgot password</h3>
         <p className="page-description">
           Please enter your email to reset the password
@@ -25,7 +25,7 @@ const Email = () => {
         {EmailForgot.map((value, index) => {
           return (
             <div className={value.inputFor} key={index}>
-              <label htmlFor={value.inputFor}>{value.inputFor}</label>
+              <label className="label" htmlFor={value.inputFor}>{value.inputFor}</label>
               <Input
                 inputFor={value.inputFor}
                 type={value.type}

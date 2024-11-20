@@ -8,7 +8,7 @@ const PassReset = () => {
   const navigate=useNavigate()
   return (
     <div className=''>
-      <form action="" onSubmit={e=>handlesubmite({ e, path: '/frogot-password/new', navigate})}>
+      <form className='form' action="" onSubmit={e=>handlesubmite({ e, path: '/frogot-password/new', navigate})}>
       <h3 className="page-heading">Password reset</h3>
       <p className="page-description">Your password has been successfully reset. click
       confirm to set a new password</p>

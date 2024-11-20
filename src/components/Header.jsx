@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Header = ({setMenuOpen,menuOpen}) => {
-  
-  
+const Header = ({ setMenuOpen, menuOpen }) => {
+  const [dropDown, setDropDown] = useState(false);
   return (
     <div className="flex items-center justify-between bg-white p-4 shadow-md">
       {/* Sidebar Open Button */}
       <button
-      onClick={prev=>setMenuOpen(!menuOpen)}
+        onClick={() => setMenuOpen(!menuOpen)}
         type="button"
         className="flex w-6 items-center space-x-2 text-gray-800 hover:bg-gray-100 rounded-md"
       >
@@ -32,7 +32,9 @@ const Header = ({setMenuOpen,menuOpen}) => {
       {/* Search Form */}
       <div className="flex items-center space-x-2">
         <form action="#" method="GET" className="flex items-center space-x-2">
-          <label htmlFor="search-field" className="font-semibold text-gray-700">Search</label>
+          <label htmlFor="search-field" className="font-semibold text-gray-700">
+            Search
+          </label>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -85,7 +87,7 @@ const Header = ({setMenuOpen,menuOpen}) => {
       <div className="relative">
         <button
           className="flex items-center text-gray-800 hover:bg-gray-100 p-2 rounded-md"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setDropDown(!dropDown)}
         >
           <span className="font-semibold">Open user menu</span>
           <img
@@ -109,32 +111,32 @@ const Header = ({setMenuOpen,menuOpen}) => {
         </button>
 
         {/* User Menu Dropdown */}
-        {menuOpen && (
-          <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md">
+        {dropDown && (
+          <div className="absolute z-20 right-0 mt-2 w-48 bg-white shadow-lg rounded-md">
             <ul className="py-1">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/user-profile"
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Profile
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to='/settings'
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Settings
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
-                  Sign out
-                </a>
+                    Sign out
+                </Link>
               </li>
             </ul>
           </div>
@@ -145,8 +147,6 @@ const Header = ({setMenuOpen,menuOpen}) => {
 };
 
 export default Header;
-
-
 
 // import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 // import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'

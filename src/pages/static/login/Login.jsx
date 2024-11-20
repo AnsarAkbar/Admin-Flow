@@ -9,12 +9,12 @@ import "./Login.css";
 const Login = () => {
   return (
     <>
-      <form className="login-form">
+      <form className="login-form form">
         <h3 className="page-heading">Login</h3>
         {LoginDetail.map((value, index) => {
           return (
             <div className={value.inputFor} key={index}>
-              <label htmlFor={value.inputFor}>{value.inputFor}</label>
+              <label className="label" htmlFor={value.inputFor}>{value.inputFor}</label>
               <Input
                 inputFor={value.inputFor}
                 type={value.type}

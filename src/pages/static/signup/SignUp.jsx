@@ -28,7 +28,7 @@ const SignUp = () => {
   return (
     <>
       <form
-        className="signup-form"
+        className="signup-form form"
         onSubmit={(e) =>
           handlesubmite(
             e,
@@ -46,7 +46,7 @@ const SignUp = () => {
         {SingnUpDetail.map((value, index) => {
           return (
             <div className={value.inputFor} key={index}>
-              <label htmlFor={value.inputFor}>{value.label}</label>
+              <label className="label" htmlFor={value.inputFor}>{value.label}</label>
               <Input
                 inputFor={value.inputFor}
                 type={value.type}

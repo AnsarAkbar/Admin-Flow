@@ -17,7 +17,7 @@ const NewPass = () => {
         </NavLink>
       </div>
 
-      <form className="newPass-form" onSubmit={e=>handlesubmite({ e, path: '/frogot-password/updated', navigate})}>
+      <form className="newPass-form form" onSubmit={e=>handlesubmite({ e, path: '/frogot-password/updated', navigate})}>
         <div>
           <h3 className="page-heading">Set a new password</h3>
           <p className="page-description">
@@ -28,7 +28,7 @@ const NewPass = () => {
         {newPass.map((value, index) => {
           return (
             <div className={value.inputFor} key={index}>
-              <label htmlFor={value.inputFor}>{value.inputFor}</label>
+              <label className="label" htmlFor={value.inputFor}>{value.inputFor}</label>
               <Input
                 inputFor={value.inputFor}
                 type={value.type}

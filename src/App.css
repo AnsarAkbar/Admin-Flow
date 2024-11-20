@@ -8,20 +8,20 @@ form *{
   outline: none;
   color: #000000cc;
 }
-/* form {
+.form {
   max-width: 350px;
   border: 1px solid;
   border-radius: 3px;
   padding: 30px;
   margin: 0 auto;
   background-color: white;
-} */
-/* label{
+}
+.label{
   display: block;
   margin-top: 20px;
   font-size: 16px;
   font-weight: 600;
-} */
+}
 .page-heading{
   text-align: center;
   font-size: x-large;
@@ -46,7 +46,7 @@ input[type="file"] {
 .form-btn {
   text-align: center;
 }
-/* button{
+.btn{
   margin-top: 20px;
   width: 50%;
   border: 2px solid rgb(27, 167, 27);
@@ -57,10 +57,10 @@ input[type="file"] {
   border-radius: 5px;
   cursor: pointer;
 }
-button:hover {
+.btn:hover {
   border: 2px solid rgb(2, 138, 2);
   color: rgb(2, 138, 2);
-} */
+}
 .form-description {
   max-width: 350px;
   margin: 0 auto;

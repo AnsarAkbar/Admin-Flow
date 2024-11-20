@@ -28,7 +28,7 @@ const PatternBackground = () => {
       </div>
       <div className="relative z-10 flex justify-center items-center h-full">
         {/* Content goes here */}
-        <h1 className="text-4xl font-bold text-gray-800">Welcome to the Page</h1>
+        <h1 className="text-4xl font-bold text-gray-800">Welcome to the admin page</h1>
       </div>
     </main>
   );

@@ -18,7 +18,7 @@ const OTP = () => {
         </NavLink>
       </div>
 
-      <form className="otp-form" onSubmit={e=>handlesubmite({ e, path: '/frogot-password/resetpass', navigate})}>
+      <form className="otp-form form" onSubmit={e=>handlesubmite({ e, path: '/frogot-password/resetpass', navigate})}>
         <h3 className="page-heading">Check your email</h3>
         <p className="page-description">
           We sent a reset link to contact@dscode...com enter 5 digit code that
