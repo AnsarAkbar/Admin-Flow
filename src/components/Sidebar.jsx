@@ -176,7 +176,7 @@ const Sidebar = ({ menuOpen }) => {
               {teamMembers.map((teamMember, index) => {
                 return (
                   <li key={index}>
-                    <Link className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition">
+                    <Link to={`team/${teamMember.id}`} className="flex items-center text-lg hover:bg-gray-700 p-2 rounded-md transition">
                       <span className="w-8 h-8 rounded-full bg-gray-500 mr-3 flex items-center justify-center">
                         {teamMember.name[0]}
                       </span>

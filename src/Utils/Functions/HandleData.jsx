@@ -6,10 +6,12 @@ export const handlesubmite = (e, storeData, pageInputs, path, navigate, validati
     const inputfields = Object.keys(pageInputs)
     const storedInfo = Object.keys(storeData.collect)//get keys of stored items
 
+    // console.log('storedInfo',storedInfo)
+
     // check if any field is empity
     inputfields?.filter(item => {
         if (storedInfo.includes(item) && storeData.collect[item]) {
-            validation = { ...validation, [item]: "", }
+            // validation = { ...validation, [item]: "", }
         } else {
             validation = { ...validation, [item]: 'Field is required...!', }
         }
@@ -18,7 +20,8 @@ export const handlesubmite = (e, storeData, pageInputs, path, navigate, validati
     dispatch(errorHandle(validation))
     // check any error exist?
     const anyError = Object.values(collectedError).some(value => value !== "");
-    if (!anyError) {
+    // console.log(storedInfo?.length)
+    if (!anyError && storedInfo?.length) {
         dispatch(handleUserData(true))
         navigate && navigate(path && path);
     }else{
@@ -26,7 +29,7 @@ export const handlesubmite = (e, storeData, pageInputs, path, navigate, validati
     }
 };
 
-export const handleChange = (e, inputFor, dispatch, Reg, validation, setValidation, isChecked, setIsChecked) => {
+export const handleChange = (e, inputFor, dispatch, Reg, validation, setValidation, isChecked, setIsChecked, Error_Message) => {
     // onClicked check box convert in 'true'
     isChecked=!isChecked
     setIsChecked(isChecked);
@@ -40,7 +43,7 @@ export const handleChange = (e, inputFor, dispatch, Reg, validation, setValidati
         validation = { ...validation, [inputFor]: "" }
     } else {
         // if regex is false then add error
-        validation = { ...validation, [inputFor]: `Please use ${Reg}` }
+        validation = { ...validation, [inputFor]: `${Error_Message}` }//Error_Message dispaly
     }
     // dispatch errors
     dispatch(errorHandle(validation))

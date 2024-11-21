@@ -1,24 +1,27 @@
 export const SingnUpDetail = [
   {
-    label: "name",
+    label: "Full Name",
     inputFor: "name",
     type: "text",
     placeholder: "Enter Your Full Name",
     reg: /^[ a-zA-Z ]+$/,
+    errorMsg:"Please use  a-zA-Z;"
   },
   {
-    label: "email",
+    label: "Email",
     inputFor: "email",
     type: "email",
     placeholder: "Enter Your Email Address",
     reg: /^[a-zA-Z0-9._%+-]+@(gmail\.com|envato\.com|edu\.pk)$/,
+    errorMsg:"Please use gmail\.com|envato\.com|edu\.pk"
   },
   {
-    label: "password",
+    label: "Password",
     inputFor: "password",
     type: "password",
-    placeholder: "At least 6 characters",
-    reg:/^.{6,}$/
+    placeholder: "Enter 6 digit password",
+    reg:/^.{6,}$/,
+    errorMsg:"Atleast 6 characters"
   },
   {
     label: "I agree with terms and privacy",
@@ -30,14 +33,14 @@ export const SingnUpDetail = [
 
 export const LoginDetail = [
   {
-    label: "email",
+    label: "Email",
     inputFor: "email",
     type: "email",
     placeholder: "Enter Your Email Address",
     reg: /^[a-zA-Z0-9._%+-]+@(gmail\.com|envato\.com|edu\.pk)$/,
   },
   {
-    label: "password",
+    label: "Password",
     inputFor: "password",
     type: "password",
     placeholder: "At least 8 characters",

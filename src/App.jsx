@@ -12,7 +12,7 @@ function App() {
   const nextPage = useSelector(
     (e) => e.persistedReducer.collectUserInfo.nextPage
   );
-  console.log("nextPage", nextPage);
+  // console.log("nextPage", nextPage);
   return (
     <>
       <BrowserRouter>

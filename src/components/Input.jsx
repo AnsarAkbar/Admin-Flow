@@ -12,6 +12,7 @@ const Input = ({
   setValidation,
   storedData,
   value,
+  Error_Message
 }) => {
   // add a value for input field
   const [isChecked, setIsChecked] = useState(value)
@@ -24,7 +25,7 @@ const Input = ({
         placeholder={placeholder && placeholder}
         maxLength={length && length}
         onChange={(e) =>
-          handleChange(e, inputFor, dispatch, Reg, validation, setValidation, isChecked, setIsChecked)
+          handleChange(e, inputFor, dispatch, Reg, validation, setValidation, isChecked, setIsChecked,Error_Message)
         }
         checked={storedData?.[inputFor]}
         value={storedData?.[inputFor]}

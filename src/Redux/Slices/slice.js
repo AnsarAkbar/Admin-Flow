@@ -14,7 +14,7 @@ const slice = createSlice({
   reducers: {
     
     handleUserData: (state, action) => {
-      console.log(action.payload)
+      // console.log(action.payload)
       state.collectUserInfo.collect = { ...state.collectUserInfo?.collect, ...action.payload };
       if (action.payload===true||action.payload===false) {
         state.collectUserInfo.nextPage= action.payload

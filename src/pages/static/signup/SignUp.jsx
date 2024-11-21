@@ -20,7 +20,7 @@ const SignUp = () => {
     (e) => e.persistedReducer.collectUserInfo
   );
 
-  console.log('storedData',storedData)
+  // console.log('storedData',storedData)
   const collectedError = useSelector(
     (e) => e.persistedReducer.collectError.collect
   ); 
@@ -34,7 +34,7 @@ const SignUp = () => {
             e,
             storedData,
             pageInputs,
-            "/admin",
+            "/admin/dashbord",
             navigate,
             validation,
             collectedError,
@@ -58,6 +58,7 @@ const SignUp = () => {
                 setValidation={setValidation}
                 storedData={storedData.collect}
                 value={value.value}
+                Error_Message={value.errorMsg}
               />
               {collectedError?.[value.inputFor] && (
                 <small style={{ color: "red" }}>

@@ -4,12 +4,11 @@ const MeetingSchedule = () => {
   // State to handle the selected month
   const [currentMonth, setCurrentMonth] = useState("January");
   const [currentYear, setCurrentYear] = useState(2024);
-
   const [selectedDate, setSelectedDate] = useState();
 
-  const [shedulemeetings,setShedulemeetings]=useState()
+  const [shedulemeetings, setShedulemeetings] = useState([]);
 
-  console.log(selectedDate);
+  // console.log(selectedDate);
 
   // Function to handle month change
   const changeMonth = (direction) => {
@@ -29,7 +28,7 @@ const MeetingSchedule = () => {
     ];
     const currentIndex = months.indexOf(currentMonth);
     let newIndex = direction === "next" ? currentIndex + 1 : currentIndex - 1;
-    setSelectedDate((e) => ({...e,year: currentYear }));
+    setSelectedDate((e) => ({ ...e, year: currentYear }));
     if (newIndex < 0) {
       newIndex = 11;
       setCurrentYear((e) => e - 1);
@@ -46,7 +45,7 @@ const MeetingSchedule = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 ">
       {/* Heading */}
       <h2 className="text-2xl font-semibold text-gray-800 mb-4">
         Upcoming meetings
@@ -112,7 +111,12 @@ const MeetingSchedule = () => {
           <button
             key={index}
             onClick={() =>
-              setSelectedDate((prev) => ({ ...prev, date: index + 1 }))
+              setSelectedDate((prev) => ({
+                ...prev,
+                date: index + 1,
+                month: currentMonth,
+                year: currentYear,
+              }))
             }
             className="px-4 py-2 bg-gray-100 text-center text-gray-700 rounded-md hover:bg-gray-200 transition"
           >
@@ -122,12 +126,15 @@ const MeetingSchedule = () => {
       </div>
 
       {/* Add Event Button */}
-      <button 
-      onClick={()=>{
-        setShedulemeetings(e=>({...e,selectedDate}))
-        setSelectedDate(null)
-      }}
-      className="mt-6 w-full py-2 bg-blue-500 text-white rounded-md shadow hover:bg-blue-600 transition">
+      <button
+        onClick={() => {
+          if (selectedDate) {
+            setShedulemeetings((prev) => [...prev, selectedDate]);
+            setSelectedDate("");
+          }
+        }}
+        className="mt-6 w-full py-2 bg-blue-500 text-white rounded-md shadow hover:bg-blue-600 transition"
+      >
         Add event
       </button>
 
@@ -138,22 +145,35 @@ const MeetingSchedule = () => {
         </h3>
         <ul className="space-y-4">
           {/* Meeting Item */}
-          <li className="flex items-center space-x-4 p-4 border rounded-md shadow-sm">
-            <img
-              src="https://via.placeholder.com/50"
-              alt="Leslie"
-              className="w-12 h-12 rounded-full"
-            />
-            <div>
-              {/* <h4 className="font-semibold text-gray-800">Leslie Alexander</h4> */}
-              {/* <p className="text-gray-600">{shedulemeetings[month],shedulemeetings[year],setShedulemeetings[date]}</p> */}
-              {/* <p className="text-gray-600">Location: Starbucks</p> */}
-              {
-                console.log('shedulemeetings',shedulemeetings)
-                // shedulemeetings?.selectedDate.forEach(e=>console.log(e))
-              }
-            </div>
-          </li>
+
+          <div>
+            {
+              // console.log(shedulemeetings)
+              shedulemeetings?.map((meeting, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="flex items-center space-x-4 p-4 border rounded-md shadow-sm bg-slate-400 mt-1"
+                  >
+                    <img
+                      src="https://via.placeholder.com/50"
+                      alt="Leslie"
+                      className="w-12 h-12 rounded-full"
+                    />
+                    <div className="flex flex-col">
+                      <h4 className="font-semibold text-gray-800">
+                        Leslie Alexander
+                      </h4>
+                      <p className="text-gray-600">
+                        {meeting.month} {meeting.date}, {meeting.year}
+                      </p>
+                      <p className="text-gray-600">Location: Starbucks</p>
+                    </div>
+                  </li>
+                );
+              })
+            }
+          </div>
         </ul>
       </div>
     </div>

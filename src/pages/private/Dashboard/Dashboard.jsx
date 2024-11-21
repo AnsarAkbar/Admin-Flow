@@ -18,36 +18,11 @@ const Dashboard = () => {
   return (
     <div className="h-screen">
       {/* Sidebar */}
-      {/* <div className="w-64 bg-gray-800 text-white p-6">
-        <h2 className="text-2xl font-semibold mb-8">Dashboard</h2>
-        <ul className="space-y-6">
-          <li>
-            <a href="#" className="hover:bg-gray-700 p-2 rounded-md block">
-              Dashboard Overview
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:bg-gray-700 p-2 rounded-md block">
-              Users
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:bg-gray-700 p-2 rounded-md block">
-              Sales
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:bg-gray-700 p-2 rounded-md block">
-              Settings
-            </a>
-          </li>
-        </ul>
-      </div> */}
       <nav className=" bg-gray-200 w-full p-6">
         {
           statsData.map((stats,index)=>{
             return(
-              <Link className="hover:bg-gray-400 p-4 rounded-md">{stats.title}</Link>
+              <Link key={index} className="hover:bg-gray-400 p-4 rounded-md">{stats.title}</Link>
             )
           })
         }

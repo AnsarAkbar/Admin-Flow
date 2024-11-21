@@ -15,6 +15,7 @@ const MeetingSchedule=React.lazy(() => import('../pages/private/calander/Meeting
 const Projects=React.lazy(() => import('../pages/private/projects/Projects'));
 const Documentation=React.lazy(() => import('../pages/private/documentation/Documentation'));
 const Reports=React.lazy(() => import("../pages/private/Reports/Reports"));
+const MemberProfile=React.lazy(() => import("../pages/private/Team/Member/MemberProfile"));
 
 export const routesWithoutLayout = [
   {
@@ -116,5 +117,10 @@ export const appRoutes = [
     protected: true,
     element: <Reports />,
   },
-
+  {
+    id: "teams",
+    path: "/team/:teamId",
+    protected: true,
+    element: <MemberProfile />,
+  }
 ];
