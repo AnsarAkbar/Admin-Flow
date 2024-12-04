@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { SingnUpDetail } from "../../../Utils/FieldsData/fields";
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
+import axios from 'axios'
 import {
   handleChange,
   handlesubmite,
@@ -20,10 +21,19 @@ const SignUp = () => {
     (e) => e.persistedReducer.collectUserInfo
   );
 
-  // console.log('storedData',storedData)
   const collectedError = useSelector(
     (e) => e.persistedReducer.collectError.collect
   ); 
+
+  // formData
+  // useEffect(async()=>{
+  //   await axios.post("http://localhost:4000/add-users", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+  // },[])
+
 
   return (
     <>
